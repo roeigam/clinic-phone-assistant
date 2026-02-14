@@ -1,0 +1,11 @@
+[project]
+name = "clinic-assistant"
+version = "0.1.0"
+description = "AI-powered clinic phone assistant (CLI)"
+requires-python = ">=3.10"
+dependencies = [
+  "pydantic>=2.6",
+]
+
+[project.scripts]
+clinic-assistant = "clinic_assistant.main:app"

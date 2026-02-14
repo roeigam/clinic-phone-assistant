@@ -1,14 +1,28 @@
-# Clinic Phone Assistant (ScribeMD Exercise)
+# Clinic Phone Assistant (ScribeMD Technical Exercise)
 
-A simple AI-powered "clinic phone assistant" that takes a simulated call transcript and outputs structured JSON:
-- intent classification
-- structured extraction (name, DOB, callback number, reason/summary)
+A simple “clinic phone assistant” that takes a simulated phone call transcript (text) and returns **clean structured JSON**:
+- intent classification (appointment / prescription / billing / urgent / etc.)
+- extraction of key patient info (name, date of birth, callback number, reason)
 - urgency flagging
 
-## How to run
+The focus is on **reasoning, structure, and practical AI integration**, not UI polish.
 
-```bash
-python -m venv .venv
-source .venv/bin/activate  # on Windows: .venv\Scripts\activate
-pip install -e .
-echo "Hi, this is Sarah Cohen, born 03/12/1988. I need to book an appointment because I've had chest pain for two days. Please call me back at 310-555-2211." | clinic-assistant
+---
+
+## Features
+
+- **Input:** free-form call transcript (single text string)
+- **Output:** validated JSON with:
+  - `intent`
+  - `name`
+  - `dob` (ISO format: `YYYY-MM-DD`)
+  - `phone`
+  - `summary` (reason for call)
+  - `urgency` (`low` / `medium` / `high`)
+- Deterministic baseline (regex + rules) that works out-of-the-box
+- Optional hook for LLM provider (interface included; can be wired easily)
+
+---
+
+## Project Structure
+
